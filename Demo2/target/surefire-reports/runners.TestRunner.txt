@@ -1,9 +1,0 @@
--------------------------------------------------------------------------------
-Test set: runners.TestRunner
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.321 s <<< FAILURE! - in runners.TestRunner
-Google Search.Title of your scenario  Time elapsed: 0.017 s  <<< ERROR!
-io.cucumber.java.PendingException: TODO: implement me
-	at stepsDefnitions.GoogleSearchStepDefination.i_have_a_google_search_page_open(GoogleSearchStepDefination.java:13)
-	at ✽.I have a google search page open(file:///C:/Users/Pankaj/eclipse-workspace/Demo2/src/test/resources/features/GoogleSearch.feature:8)
-
