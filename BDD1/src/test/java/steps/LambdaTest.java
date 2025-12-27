@@ -10,7 +10,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,25 +27,20 @@ public class LambdaTest {
     WebDriver driver;
     @BeforeClass
     @Parameters({"browser", "version", "platform"})
-    public void setUp( @Optional("chrome") String browser, @Optional("143.0") String version,  @Optional("Windows 11") String platform) throws Exception {
-		/*
-		 * // Selenium Grid Hub URL (replace with your Grid hub) URL hubURL = new
-		 * URL("http://192.168.1.8:4444/wd/hub"); // Desired Capabilities for Grid
-		 * MutableCapabilities caps = new MutableCapabilities();
-		 * caps.setCapability("browserName", browser);
-		 * caps.setCapability("browserVersion", version);
-		 * caps.setCapability("platformName", platform); driver = new
-		 * RemoteWebDriver(hubURL, caps);
-		 */
-    	
-    	 driver = new EdgeDriver();
-    	
+    public void setUp( @Optional("edge") String browser, @Optional("143.0") String version,  @Optional("Windows 11") String platform) throws Exception {
+        // Selenium Grid Hub URL (replace with your Grid hub)
+         URL hubURL = new URL("http://192.168.1.8:4444/wd/hub");
+        // Desired Capabilities for Grid
+        MutableCapabilities caps = new MutableCapabilities();
+        caps.setCapability("browserName", browser);
+        caps.setCapability("browserVersion", version);
+        caps.setCapability("platformName", platform);
+        driver = new RemoteWebDriver(hubURL, caps);
     }
 
     @Test
     public void testLambdaIntegrationFlow() {
         // 1. Navigate
-    	driver.manage().window().maximize();
         driver.get("https://www.lambdatest.com");
 
         // 2. Explicit wait for DOM
